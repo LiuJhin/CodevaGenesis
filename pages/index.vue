@@ -19,6 +19,7 @@
       <sectionHomeReel/>
 
       <sectionFeatured/>
+
     </div>
   </div>
 </template>
@@ -28,7 +29,6 @@
   box-sizing: border-box;
   padding: 0 2%;
   width: 100%;
-  height: 100vh;
 
   .content {
     width: 100%;

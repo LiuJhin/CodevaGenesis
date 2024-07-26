@@ -2,6 +2,7 @@
   <div>
     <layoutComponentsHeader/>
     <NuxtPage />
+    <layoutComponentsFoother/>
   </div>
 </template>
 

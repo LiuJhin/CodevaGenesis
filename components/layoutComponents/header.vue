@@ -1,3 +1,60 @@
+<script setup>
+import {ref, onMounted, onUnmounted} from 'vue';
+import { useRouter} from "vue-router";
+import gsap from 'gsap';
+
+const router = useRouter();
+const showMenu = ref(false);
+
+const jumpMenuLocal =(local) => {
+  // navigateTo(local)
+  router.push({
+    path: local,
+  })
+}
+
+const jumpGitHub = () => {
+  window.open('https://github.com/LiuJhin/CodevaGenesis')
+}
+
+const toggleMenu = () => {
+  showMenu.value = !showMenu.value;
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  const additionalMenu = document.querySelector('.additional-menu');
+
+  if (showMenu.value) {
+    gsap.to(dropdownMenu, {opacity: 1, display: 'block', duration: 0.5});
+    gsap.to(additionalMenu, {opacity: 1, display: 'block', duration: 0.5});
+  } else {
+    gsap.to(dropdownMenu, {opacity: 0, display: 'none', duration: 0.5});
+    gsap.to(additionalMenu, {opacity: 0, display: 'none', duration: 0.5});
+  }
+};
+
+const closeMenu = (event) => {
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  const additionalMenu = document.querySelector('.additional-menu');
+
+  if (showMenu.value && !dropdownMenu.contains(event.target) && !additionalMenu.contains(event.target) && !event.target.closest('.menu-button')) {
+    showMenu.value = false;
+    gsap.to(dropdownMenu, {opacity: 0, display: 'none', duration: 0.5});
+    gsap.to(additionalMenu, {opacity: 0, display: 'none', duration: 0.5});
+  }
+};
+
+onMounted(() => {
+  document.addEventListener('click', closeMenu);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('click', closeMenu);
+});
+
+const navigateTo = (section) => {
+  console.log(`Navigating to ${section}`);
+};
+</script>
+
 <template>
   <div class="home_header">
     <div class="header-title" @click="jumpMenuLocal('/')">CodeVa Genesis</div>
@@ -11,14 +68,16 @@
             <li @click="jumpMenuLocal('/about-us')">ABOUT US</li>
             <li @click="navigateTo('project')">PROJECT</li>
             <li @click="navigateTo('contact')">CONTACT</li>
+            <li @click="navigateTo('project')">DEVELOPMENT</li>
+
+          </ul>
+        </div>
+        <div ref="additionalMenu" class="dropdown-menu additional-menu">
+          <ul>
+            <li @click="jumpGitHub()">GitHub</li>
           </ul>
         </div>
 
-        <div ref="additionalMenu" class="dropdown-menu additional-menu">
-          <ul>
-            <li @click="navigateTo('github')">GitHub</li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
@@ -103,59 +162,8 @@
 }
 
 .additional-menu {
-  top: calc(130% + 160px); /* Adjust based on the height of the previous menu */
+  top: calc(130% + 200px); /* Adjust based on the height of the previous menu */
 }
+
 </style>
 
-<script setup>
-import {ref, onMounted, onUnmounted} from 'vue';
-import { useRouter} from "vue-router";
-import gsap from 'gsap';
-
-const router = useRouter();
-const showMenu = ref(false);
-
-const jumpMenuLocal =(local) => {
-  // navigateTo(local)
-  router.push({
-    path: local,
-  })
-}
-
-const toggleMenu = () => {
-  showMenu.value = !showMenu.value;
-  const dropdownMenu = document.querySelector('.dropdown-menu');
-  const additionalMenu = document.querySelector('.additional-menu');
-
-  if (showMenu.value) {
-    gsap.to(dropdownMenu, {opacity: 1, display: 'block', duration: 0.5});
-    gsap.to(additionalMenu, {opacity: 1, display: 'block', duration: 0.5});
-  } else {
-    gsap.to(dropdownMenu, {opacity: 0, display: 'none', duration: 0.5});
-    gsap.to(additionalMenu, {opacity: 0, display: 'none', duration: 0.5});
-  }
-};
-
-const closeMenu = (event) => {
-  const dropdownMenu = document.querySelector('.dropdown-menu');
-  const additionalMenu = document.querySelector('.additional-menu');
-
-  if (showMenu.value && !dropdownMenu.contains(event.target) && !additionalMenu.contains(event.target) && !event.target.closest('.menu-button')) {
-    showMenu.value = false;
-    gsap.to(dropdownMenu, {opacity: 0, display: 'none', duration: 0.5});
-    gsap.to(additionalMenu, {opacity: 0, display: 'none', duration: 0.5});
-  }
-};
-
-onMounted(() => {
-  document.addEventListener('click', closeMenu);
-});
-
-onUnmounted(() => {
-  document.removeEventListener('click', closeMenu);
-});
-
-const navigateTo = (section) => {
-  console.log(`Navigating to ${section}`);
-};
-</script>
