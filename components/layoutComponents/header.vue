@@ -1,20 +1,20 @@
 <template>
   <div class="home_header">
-    <div class="header-title">CodeVa Genesis</div>
+    <div class="header-title" @click="jumpMenuLocal('/')">CodeVa Genesis</div>
     <div class="header-buttons">
       <button class="talk-button">LET'S TALK</button>
       <div class="menu-container">
         <button class="menu-button" @click="toggleMenu">MENU</button>
-        <div v-if="showMenu" class="dropdown-menu">
+        <div ref="dropdownMenu" class="dropdown-menu">
           <ul>
             <li @click="navigateTo('home')">HOME</li>
-            <li @click="navigateTo('/about-us')">ABOUT US</li>
+            <li @click="jumpMenuLocal('/about-us')">ABOUT US</li>
             <li @click="navigateTo('project')">PROJECT</li>
             <li @click="navigateTo('contact')">CONTACT</li>
           </ul>
         </div>
 
-        <div v-if="showMenu" class="dropdown-menu additional-menu">
+        <div ref="additionalMenu" class="dropdown-menu additional-menu">
           <ul>
             <li @click="navigateTo('github')">GitHub</li>
           </ul>
@@ -82,6 +82,7 @@
   z-index: 1000;
   width: 200px;
   margin-top: 10px;
+  display: none; /* Hide initially */
 }
 
 .dropdown-menu ul {
@@ -99,7 +100,6 @@
 .dropdown-menu li:hover {
   background-color: #f0f0f0;
   border-radius: 8px;
-
 }
 
 .additional-menu {
@@ -108,16 +108,54 @@
 </style>
 
 <script setup>
-import { ref } from 'vue';
+import {ref, onMounted, onUnmounted} from 'vue';
+import { useRouter} from "vue-router";
+import gsap from 'gsap';
 
+const router = useRouter();
 const showMenu = ref(false);
+
+const jumpMenuLocal =(local) => {
+  // navigateTo(local)
+  router.push({
+    path: local,
+  })
+}
 
 const toggleMenu = () => {
   showMenu.value = !showMenu.value;
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  const additionalMenu = document.querySelector('.additional-menu');
+
+  if (showMenu.value) {
+    gsap.to(dropdownMenu, {opacity: 1, display: 'block', duration: 0.5});
+    gsap.to(additionalMenu, {opacity: 1, display: 'block', duration: 0.5});
+  } else {
+    gsap.to(dropdownMenu, {opacity: 0, display: 'none', duration: 0.5});
+    gsap.to(additionalMenu, {opacity: 0, display: 'none', duration: 0.5});
+  }
 };
+
+const closeMenu = (event) => {
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  const additionalMenu = document.querySelector('.additional-menu');
+
+  if (showMenu.value && !dropdownMenu.contains(event.target) && !additionalMenu.contains(event.target) && !event.target.closest('.menu-button')) {
+    showMenu.value = false;
+    gsap.to(dropdownMenu, {opacity: 0, display: 'none', duration: 0.5});
+    gsap.to(additionalMenu, {opacity: 0, display: 'none', duration: 0.5});
+  }
+};
+
+onMounted(() => {
+  document.addEventListener('click', closeMenu);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('click', closeMenu);
+});
 
 const navigateTo = (section) => {
   console.log(`Navigating to ${section}`);
-  // Add your navigation logic here, e.g., using Vue Router
 };
 </script>
