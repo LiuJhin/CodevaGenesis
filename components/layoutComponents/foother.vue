@@ -1,14 +1,14 @@
 <template>
   <div class="footer-container">
-    <div class="footer-section">KEEP SCROLLING
-      <br />TO LEARN MORE
-    </div>
+    <div class="footer-section">KEEP SCROLLING <br />TO LEARN MORE</div>
 
     <div class="footer-nav">
       <div class="footer-nav-title">ABOUT US</div>
       <div class="next-pages">NEXT PAGE -></div>
     </div>
-    <div class="footer-icp">ICP备案号: <a href="https://beian.miit.gov.cn">湘ICP备2024073097号-1</a></div>
+    <div class="footer-icp">
+      ICP备案号: <a href="https://beian.miit.gov.cn">湘ICP备2024073097号-1</a>
+    </div>
   </div>
 </template>
 
@@ -81,42 +81,42 @@
 </style>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import { gsap } from 'gsap';
+import { onMounted } from "vue";
+import { gsap } from "gsap";
 
 onMounted(() => {
   // Animating the footer section text
-  gsap.from('.footer-section', {
+  gsap.from(".footer-section", {
     opacity: 0,
     y: 50,
     duration: 1,
-    ease: 'power2.out'
+    ease: "power2.out",
   });
 
   // Animating the footer nav titles
-  gsap.from('.footer-nav-title', {
+  gsap.from(".footer-nav-title", {
     opacity: 0,
     x: -100,
     duration: 1,
     delay: 0.5,
-    ease: 'power2.out'
+    ease: "power2.out",
   });
 
-  gsap.from('.next-pages', {
+  gsap.from(".next-pages", {
     opacity: 0,
     x: 100,
     duration: 1,
     delay: 0.5,
-    ease: 'power2.out'
+    ease: "power2.out",
   });
 
   // Animating the ICP record info
-  gsap.from('.footer-icp', {
+  gsap.from(".footer-icp", {
     opacity: 0,
     y: 50,
     duration: 1,
     delay: 1,
-    ease: 'power2.out'
+    ease: "power2.out",
   });
 });
 </script>

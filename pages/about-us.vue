@@ -19,7 +19,6 @@
         </p>
       </section>
       <section class="about-us-team">
-        <h2>Meet Our Team</h2>
         <div
           class="team-member"
           v-for="(member, index) in teamMembers"
@@ -35,7 +34,7 @@
         </div>
       </section>
       <footer class="about-us-footer">
-        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        <p>&copy; 2024 Kevin Liu. All rights reserved.</p>
       </footer>
     </div>
   </div>
@@ -48,7 +47,8 @@
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background: url("/path/to/your/background.jpg") no-repeat center center fixed;
+  background: url("https://n.sinaimg.cn/sinakd20116/232/w1552h1080/20231204/9e5f-f0397afd9c24ce92251144a390604378.jpg")
+    no-repeat center center fixed;
   background-size: cover;
   padding: 20px;
   box-sizing: border-box;
@@ -71,7 +71,7 @@
 }
 
 .about-us-header h1 {
-  font-size: 3em;
+  font-size: 4em;
   color: #000;
 }
 
@@ -81,6 +81,7 @@
 
 .about-us-content p {
   line-height: 1.6;
+  font-size: 1.2em;
   margin-bottom: 15px;
 }
 
@@ -98,7 +99,7 @@
 }
 
 .about-us-team h2 {
-  font-size: 2.5em;
+  font-size: 3.5em;
   margin-bottom: 20px;
 }
 
@@ -116,12 +117,12 @@
 }
 
 .team-member h3 {
-  font-size: 1.5em;
+  font-size: 2.5em;
   margin-bottom: 5px;
 }
 
 .about-us-footer {
-  font-size: 0.9em;
+  font-size: 1.9em;
 }
 </style>
 
@@ -130,19 +131,9 @@ import { ref } from "vue";
 
 const teamMembers = ref([
   {
-    name: "John Doe",
-    position: "CEO",
-    image: "/path/to/john.jpg",
-  },
-  {
-    name: "Jane Smith",
-    position: "CTO",
-    image: "/path/to/jane.jpg",
-  },
-  {
-    name: "Mike Johnson",
-    position: "Developer",
-    image: "/path/to/mike.jpg",
+    name: "Kevin Liu",
+    position: "Software development engineer who loves photography",
+    image: "https://a.520gexing.com/uploads/allimg/2023092512/as2zf5mkrr5.jpg",
   },
 ]);
 </script>
