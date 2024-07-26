@@ -6,19 +6,30 @@
       </header>
       <section class="about-us-content">
         <p>
-          Welcome to the About Us page! We are a team of dedicated professionals committed to providing the best service possible.
+          Welcome to the About Us page! We are a team of dedicated professionals
+          committed to providing the best service possible.
         </p>
         <p>
-          Our team has a wide range of expertise and experience, ensuring that we can handle any challenges that come our way.
+          Our team has a wide range of expertise and experience, ensuring that
+          we can handle any challenges that come our way.
         </p>
         <p>
-          Thank you for taking the time to learn more about us. If you have any questions, feel free to <a href="/contact">contact us</a>.
+          Thank you for taking the time to learn more about us. If you have any
+          questions, feel free to <a href="/contact">contact us</a>.
         </p>
       </section>
       <section class="about-us-team">
         <h2>Meet Our Team</h2>
-        <div class="team-member" v-for="(member, index) in teamMembers" :key="index">
-          <img :src="member.image" :alt="member.name" class="team-member-image"/>
+        <div
+          class="team-member"
+          v-for="(member, index) in teamMembers"
+          :key="index"
+        >
+          <img
+            :src="member.image"
+            :alt="member.name"
+            class="team-member-image"
+          />
           <h3>{{ member.name }}</h3>
           <p>{{ member.position }}</p>
         </div>
@@ -37,7 +48,7 @@
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background: url('/path/to/your/background.jpg') no-repeat center center fixed;
+  background: url("/path/to/your/background.jpg") no-repeat center center fixed;
   background-size: cover;
   padding: 20px;
   box-sizing: border-box;
@@ -115,23 +126,23 @@
 </style>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
 const teamMembers = ref([
   {
-    name: 'John Doe',
-    position: 'CEO',
-    image: '/path/to/john.jpg'
+    name: "John Doe",
+    position: "CEO",
+    image: "/path/to/john.jpg",
   },
   {
-    name: 'Jane Smith',
-    position: 'CTO',
-    image: '/path/to/jane.jpg'
+    name: "Jane Smith",
+    position: "CTO",
+    image: "/path/to/jane.jpg",
   },
   {
-    name: 'Mike Johnson',
-    position: 'Developer',
-    image: '/path/to/mike.jpg'
-  }
+    name: "Mike Johnson",
+    position: "Developer",
+    image: "/path/to/mike.jpg",
+  },
 ]);
 </script>

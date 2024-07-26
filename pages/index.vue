@@ -15,6 +15,10 @@
           Your browser does not support the video tag.
         </video>
       </div>
+
+      <sectionHomeReel/>
+
+      <sectionFeatured/>
     </div>
   </div>
 </template>
