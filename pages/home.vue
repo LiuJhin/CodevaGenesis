@@ -10,7 +10,7 @@
       </video>
     </div>
     <div class="content">
-      <h1 class="title" ref="title">Hi,花花 一切从这里开始</h1>
+      <h1 class="title" ref="title">Hi Alone 一切从这里开始</h1>
       <p class="subtitle" ref="subtitle">Welcome to my personal blog</p>
     </div>
   </div>

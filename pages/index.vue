@@ -3,23 +3,23 @@
     <div class="content">
       <div class="headerText-container">
         <p id="headerText">
-          We help brands create digital experiences that connect with their audience
+          We help brands create digital experiences that connect with their
+          audience
         </p>
       </div>
       <div class="canvas">
         <video autoplay loop muted class="background-video">
           <source
-              src="https://1322820936.vod-qcloud.com/67d7c58dvodsh1322820936/57cbd0451253642701274948870/2paFQsONlzIA.mp4"
-              type="video/mp4"
+            src="https://1322820936.vod-qcloud.com/67d7c58dvodsh1322820936/57cbd0451253642701274948870/2paFQsONlzIA.mp4"
+            type="video/mp4"
           />
           Your browser does not support the video tag.
         </video>
       </div>
 
-      <sectionHomeReel/>
+      <sectionHomeReel />
 
-      <sectionFeatured/>
-
+      <sectionFeatured />
     </div>
   </div>
 </template>
@@ -60,38 +60,38 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Cover the entire background */
-      z-index: 1; /* Behind other elements */
+      object-fit: cover;
+      z-index: 1;
       border-radius: 30px;
     }
   }
 }
 </style>
 
-<script setup lang="ts">
-import { onMounted } from 'vue';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+<script setup>
+import { onMounted } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-  gsap.fromTo("#headerText",
-      { y: -150, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: "#headerText",
-          start: "top 80%", // Trigger when top of the element hits 80% of viewport height
-          end: "bottom 60%", // End when bottom of the element hits 60% of viewport height
-          scrub: true, // Smooth scrubbing
-          toggleActions: "play none none none", // Controls play/pause on scroll
-        }
-      }
+  gsap.fromTo(
+    "#headerText",
+    { y: -150, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: "#headerText",
+        start: "top 80%",
+        end: "bottom 60%",
+        scrub: true,
+        toggleActions: "play none none none",
+      },
+    }
   );
 });
 </script>
