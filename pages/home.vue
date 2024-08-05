@@ -1,5 +1,5 @@
 <template>
-  <div class="container" ref="container">
+  <div class="container2" ref="container">
     <div class="overlay-video">
       <video autoplay loop muted class="background-video">
         <source
@@ -10,7 +10,7 @@
       </video>
     </div>
     <div class="content">
-      <h1 class="title" ref="title">Hi Alone 一切从这里开始</h1>
+      <h1 class="title" ref="title">Hello Everything Starts Here</h1>
       <p class="subtitle" ref="subtitle">Welcome to my personal blog</p>
     </div>
   </div>
@@ -49,7 +49,8 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-.container {
+.container2 {
+  box-sizing: border-box;
   position: relative;
   width: 100%;
   height: 100vh;

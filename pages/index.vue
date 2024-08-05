@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container1">
     <div class="content">
       <div class="headerText-container">
         <p id="headerText">
@@ -25,7 +25,7 @@
 </template>
 
 <style lang="scss" scoped>
-.container {
+.container1 {
   box-sizing: border-box;
   padding: 0 2%;
   width: 100%;

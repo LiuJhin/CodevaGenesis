@@ -73,6 +73,8 @@ const navigateTo = (section) => {
             <li @click="jumpMenuLocal('/project')">PROJECT</li>
             <li @click="navigateTo('contact')">CONTACT</li>
             <li @click="navigateTo('project')">DEVELOPMENT</li>
+            <li @click="jumpMenuLocal('/project')">中文/English</li>
+
           </ul>
         </div>
         <div ref="additionalMenu" class="dropdown-menu additional-menu">
@@ -164,6 +166,6 @@ const navigateTo = (section) => {
 }
 
 .additional-menu {
-  top: calc(130% + 200px); /* Adjust based on the height of the previous menu */
+  top: calc(130% + 250px); /* Adjust based on the height of the previous menu */
 }
 </style>

@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="page-container">
     <layoutComponentsHeader/>
-    <NuxtPage />
+    <div class="page">
+      <NuxtPage />
+    </div>
     <layoutComponentsFoother/>
   </div>
 </template>

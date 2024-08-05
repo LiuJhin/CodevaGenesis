@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   ssr: false,
   css: ["~/assets/style.scss"],
   modules: ['@pinia/nuxt',
+      '@nuxtjs/tailwindcss',
     async (options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config: any) =>
           // @ts-ignore
