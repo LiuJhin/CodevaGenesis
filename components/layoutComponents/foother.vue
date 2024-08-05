@@ -80,12 +80,11 @@
 }
 </style>
 
-<script setup lang="ts">
+<script setup>
 import { onMounted } from "vue";
 import { gsap } from "gsap";
 
 onMounted(() => {
-  // Animating the footer section text
   gsap.from(".footer-section", {
     opacity: 0,
     y: 50,
@@ -93,7 +92,6 @@ onMounted(() => {
     ease: "power2.out",
   });
 
-  // Animating the footer nav titles
   gsap.from(".footer-nav-title", {
     opacity: 0,
     x: -100,
@@ -110,7 +108,6 @@ onMounted(() => {
     ease: "power2.out",
   });
 
-  // Animating the ICP record info
   gsap.from(".footer-icp", {
     opacity: 0,
     y: 50,
