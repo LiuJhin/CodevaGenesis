@@ -74,7 +74,6 @@ const navigateTo = (section) => {
             <li @click="navigateTo('contact')">CONTACT</li>
             <li @click="navigateTo('project')">DEVELOPMENT</li>
             <li @click="jumpMenuLocal('/project')">中文/English</li>
-
           </ul>
         </div>
         <div ref="additionalMenu" class="dropdown-menu additional-menu">
@@ -101,11 +100,36 @@ const navigateTo = (section) => {
   margin: 0 auto;
 }
 
-.header-title {
+/* .header-title {
   margin-left: 3%;
   font-size: 2.5em;
   font-weight: bold;
   color: #333;
+} */
+
+.header-title {
+  margin-left: 3%;
+  font-size: 2.5em;
+  font-weight: bold; /* 根据需要调整字体粗细 */
+  background: linear-gradient(90deg, black, gray, white, gray, black);
+  background-size: 600% 600%; /* 增加背景尺寸以确保平滑过渡 */
+  -webkit-background-clip: text;
+  color: transparent;
+  cursor: pointer; /* 鼠标悬停时显示手型图标 */
+  animation: gradientAnimation 10s infinite linear; /* 调整动画时长 */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.header-title {
+  background-size: 200% 200%;
 }
 
 .header-buttons {

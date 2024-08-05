@@ -2,15 +2,15 @@
   <div class="main-container">
     <div class="background-animation"></div>
     <div class="headline">
-      <div class="headline-right">Beyond Visions </div>
+      <div class="headline-right">Beyond Visions</div>
       <div class="headline-left">Within Reach</div>
     </div>
     <div class="content-container">
       <div class="image-box">
         <video autoplay loop muted class="background-video">
           <source
-              src="https://1322820936.vod-qcloud.com/08e44ec6vodcq1322820936/943857b71253642701275212709/UqvBl5TKvRoA.mp4"
-              type="video/mp4"
+            src="https://1322820936.vod-qcloud.com/08e44ec6vodcq1322820936/943857b71253642701275212709/UqvBl5TKvRoA.mp4"
+            type="video/mp4"
           />
           Your browser does not support the video tag.
         </video>
@@ -18,7 +18,11 @@
       <div class="text-box">
         <div class="text-content">
           <p class="paragraphContent">
-            Codeva Genesis is a digital production studio that brings your ideas to life through visually captivating designs and interactive experiences. With our talented team, we push the boundaries by solving complex problems and delivering tailored solutions that exceed expectations and engage audiences.
+            Codeva Genesis is a digital production studio that brings your ideas
+            to life through visually captivating designs and interactive
+            experiences. With our talented team, we push the boundaries by
+            solving complex problems and delivering tailored solutions that
+            exceed expectations and engage audiences.
           </p>
           <div class="about-button">ABOUT US</div>
         </div>
@@ -28,17 +32,17 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import { gsap } from 'gsap';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import { onMounted } from "vue";
+import { gsap } from "gsap";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 gsap.registerPlugin(MotionPathPlugin);
 
 const createRandomShapes = () => {
-  const container = document.querySelector('.background-animation');
+  const container = document.querySelector(".background-animation");
   for (let i = 0; i < 10; i++) {
-    const shape = document.createElement('div');
-    shape.classList.add('shape');
+    const shape = document.createElement("div");
+    shape.classList.add("shape");
     container.appendChild(shape);
   }
 };
@@ -46,96 +50,101 @@ const createRandomShapes = () => {
 onMounted(() => {
   createRandomShapes();
 
-  gsap.from('.headline-right', {
+  gsap.from(".headline-right", {
     duration: 1.5,
     opacity: 0,
     x: -200,
-    ease: 'power4.out',
+    ease: "power4.out",
     scrollTrigger: {
-      trigger: '.headline',
-      start: 'top 80%',
-      end: 'top 60%',
-      scrub: 1
-    }
+      trigger: ".headline",
+      start: "top 80%",
+      end: "top 60%",
+      scrub: 1,
+    },
   });
 
-  gsap.from('.headline-left', {
+  gsap.from(".headline-left", {
     duration: 1.5,
     opacity: 0,
     x: 200,
-    ease: 'power4.out',
+    ease: "power4.out",
     scrollTrigger: {
-      trigger: '.headline',
-      start: 'top 80%',
-      end: 'top 60%',
-      scrub: 1
-    }
+      trigger: ".headline",
+      start: "top 80%",
+      end: "top 60%",
+      scrub: 1,
+    },
   });
 
-  gsap.from('.image-box', {
+  gsap.from(".image-box", {
     duration: 1.5,
     x: -100,
     opacity: 0,
     scale: 0.9,
-    ease: 'power2.out',
+    ease: "power2.out",
     scrollTrigger: {
-      trigger: '.content-container',
-      start: 'top 80%',
-      end: 'top 50%',
-      scrub: 1
-    }
+      trigger: ".content-container",
+      start: "top 80%",
+      end: "top 50%",
+      scrub: 1,
+    },
   });
 
-  gsap.from('.text-box', {
+  gsap.from(".text-box", {
     duration: 1.5,
     x: 100,
     opacity: 0,
     scale: 0.9,
-    ease: 'power2.out',
+    ease: "power2.out",
     scrollTrigger: {
-      trigger: '.content-container',
-      start: 'top 80%',
-      end: 'top 50%',
-      scrub: 1
-    }
+      trigger: ".content-container",
+      start: "top 80%",
+      end: "top 50%",
+      scrub: 1,
+    },
   });
 
-  gsap.from('.text-content p', {
+  gsap.from(".text-content p", {
     duration: 1.5,
     y: 50,
     opacity: 0,
-    ease: 'power2.out',
+    ease: "power2.out",
     scrollTrigger: {
-      trigger: '.text-box',
-      start: 'top 80%',
-      end: 'top 60%',
-      scrub: 1
-    }
+      trigger: ".text-box",
+      start: "top 80%",
+      end: "top 60%",
+      scrub: 1,
+    },
   });
 
-  gsap.from('.about-button', {
+  gsap.from(".about-button", {
     duration: 1.5,
     scale: 0.5,
     opacity: 0,
-    ease: 'back.out(1.7)',
+    ease: "back.out(1.7)",
     scrollTrigger: {
-      trigger: '.text-box',
-      start: 'top 80%',
-      end: 'top 60%',
-      scrub: 1
-    }
+      trigger: ".text-box",
+      start: "top 80%",
+      end: "top 60%",
+      scrub: 1,
+    },
   });
 
-  gsap.utils.toArray('.shape').forEach(shape => {
+  gsap.utils.toArray(".shape").forEach((shape) => {
     gsap.to(shape, {
       duration: 5,
       motionPath: {
-        path: [{ x: 0, y: 0 }, { x: 300, y: 200 }, { x: -200, y: 300 }, { x: 0, y: 0 }],
+        path: [
+          { x: 0, y: 0 },
+          { x: 300, y: 200 },
+          { x: -200, y: 300 },
+          { x: 0, y: 0 },
+        ],
         curviness: 1.25,
-        autoRotate: true
+        autoRotate: true,
       },
       repeat: -1,
-      ease: 'none'
+      ease: "none",
     });
   });
 });
@@ -179,7 +188,8 @@ onMounted(() => {
   line-height: 1.2;
 }
 
-.headline-right, .headline-left {
+.headline-right,
+.headline-left {
   display: inline-block;
   width: 100%;
 }
@@ -243,12 +253,14 @@ onMounted(() => {
 }
 
 .about-button {
+  text-align: center;
+  width: 200px;
   display: inline-block;
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: bold;
   color: #fff;
-  background-color: #409eff;
+  background-color: #0054a8;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;

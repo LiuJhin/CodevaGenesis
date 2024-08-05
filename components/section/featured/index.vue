@@ -6,7 +6,7 @@
     </div>
     <div class="cards-container">
       <template v-for="(featured, index) in featuredList" :key="featured.title">
-        <div class="card">
+        <div class="card" @click="toDetail(featured.id)">
           <div class="image">
             <img :src="featured.url" alt="Featured Work Image">
           </div>
@@ -21,42 +21,61 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap';
+import { useRouter} from "vue-router";
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+const router = useRouter();
 gsap.registerPlugin(ScrollTrigger);
 
 const featuredList = ref([
   {
+    id: 1000021,
     url: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/f71005202370897.6684fcf24942f.jpg',
     tag: ['Web', 'DESIGN', 'DEVELOPMENT', '3D'],
     title: 'Synthetic Human'
   },
   {
+    id: 1000022,
     url: 'https://images.unsplash.com/photo-1721627679019-1c065961a6b6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tag: ['App', 'UX', 'DEVELOPMENT'],
     title: 'Future Vision'
   },
   {
+    id: 1000023,
     url: 'https://images.unsplash.com/photo-1721332149346-00e39ce5c24f?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tag: ['3DMAX', 'UX', 'DEVELOPMENT'],
     title: 'Future Vision'
   },
   {
+    id: 1000024,
     url: 'https://images.unsplash.com/photo-1719937050792-a6a15d899281?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tag: ['AE', 'UX', 'DEVELOPMENT'],
     title: 'Future Vision'
   },
   {
+    id: 1000025,
+
     url: 'https://images.unsplash.com/photo-1721715115717-8dfeea6bfb8a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tag: ['AI', 'UX', 'DEVELOPMENT'],
     title: 'Future Vision'
   },
   {
+    id: 1000026,
     url: 'https://images.unsplash.com/photo-1719937050792-a6a15d899281?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tag: ['Photoshop', 'UX', 'DEVELOPMENT'],
     title: 'Future Vision'
   }
 ]);
+
+const toDetail = (id) => {
+  // `/article/home-articles-detail/${id}`
+  router.push({
+    path: '/article/home-articles-detail',
+    query: {
+      id: id
+    }
+  });
+}
 
 onMounted(() => {
   gsap.from('.header-titles', {
