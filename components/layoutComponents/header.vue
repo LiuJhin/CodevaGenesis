@@ -1,6 +1,6 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
-import { useRouter } from "vue-router";
+import {onMounted, onUnmounted, ref} from "vue";
+import {useRouter} from "vue-router";
 import gsap from "gsap";
 
 const router = useRouter();
@@ -46,6 +46,15 @@ const closeMenu = (event) => {
   }
 };
 
+const sendAnEmail = () => {
+  const recipientEmail = "ljin7660@gmail.com";
+  const subject = "Your Subject Here";
+  const body = "What do you want to say to me?";
+
+  window.location.href = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
+
+
 onMounted(() => {
   document.addEventListener("click", closeMenu);
 });
@@ -63,7 +72,7 @@ const navigateTo = (section) => {
   <div class="home_header">
     <div class="header-title" @click="jumpMenuLocal('/')">CodeVa Genesis</div>
     <div class="header-buttons">
-      <button class="talk-button">LET'S TALK</button>
+      <button class="talk-button" @click="sendAnEmail">LET'S TALK</button>
       <div class="menu-container">
         <button class="menu-button" @click="toggleMenu">MENU</button>
         <div ref="dropdownMenu" class="dropdown-menu">

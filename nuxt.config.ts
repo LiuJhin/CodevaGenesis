@@ -9,16 +9,8 @@ export default defineNuxtConfig({
   css: ["~/assets/style.scss"],
   modules: ['@pinia/nuxt',
       '@nuxtjs/tailwindcss',
-    async (options, nuxt) => {
-      nuxt.hooks.hook("vite:extendConfig", (config: any) =>
-          // @ts-ignore
-          config.plugins.push(
-              vuetify({
-                styles: { configFile: resolve("/assets/scss/variables.scss") },
-              })
-          )
-      );
-    },],
+      '@nuxtjs/i18n'
+    ],
     build: {
         transpile: ['gsap'],
     },
